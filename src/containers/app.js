@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadApp } from 'actions/app';
+import { loadApp,addTodo } from 'actions/app';
 import styles from './app.css';
 import {Calculations} from "./calc";
 type Props = {
@@ -9,13 +9,21 @@ type Props = {
 }
 
 export class AppContainer extends Component {
+  constructor(props){
+    super(props);
+    this.triggerHandler=this.triggerHandler.bind(this);
+  }
   componentDidMount() {
     this.props.dispatch(loadApp());
-    {Calculations}
-  }
+    Calculations.callfunc()}
 
   props: Props;
-
+  triggerHandler()
+  
+  {
+alert(23);
+this.props.dispatch(addTodo("dasd"))
+  }
   render() {
    let cba= this.props.message;
     debugger;
@@ -27,7 +35,8 @@ export class AppContainer extends Component {
       <div className={styles.container} >
       This is my my first react component
     <h1> {cba}</h1>
-       
+   
+       <input type="button" onClick={this.triggerHandler}  value="SUBMIT" /> 
       </div>
     );
   }

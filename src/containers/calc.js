@@ -7,13 +7,17 @@ import * as actions from "../actions/app"
 
 function abc(){
 
- 
-    store.dispatch(actions.addTodo('Read the docs'))
-    store.dispatch(actions.addTodo('Read about the middleware'))
+   
        return "abc";
 }
 
-const Calculations=abc();
+export const Calculations={
+
+    callfunc:function(){
+        alert("dsa");
+        store.dispatch(actions.addTodo('Read about the middleware'))
+    }
+};
 
 
 
